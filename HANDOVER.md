@@ -8,9 +8,7 @@
 
 ## Part 1 — Pi configuration (what's set up and why)
 
-Tim uses **Pi for code-heavy work** and Hermes Agent for general use. Per-project
-"profiles" are done with per-project `.pi/settings.json` + auto-loading context files
-(AGENTS.md / CLAUDE.md). No custom profiles feature exists; this is the native mechanism.
+Tim uses **Pi for code-heavy work** and Hermes Agent for general use.
 
 | Location | Config |
 |---|---|
@@ -22,8 +20,26 @@ in each project so a single profile is enough (decided 26 Aug).
 **Models:** ox-alpha via OpenRouter only (`enabledModels` = `stealth/ox-alpha`).
 No Anthropic/Claude fallback — deliberate choice, don't add one.
 
-Prompt templates in `~/.pi/agent/prompts/`: `/commit`, `/explain`, `/godot-verify`,
-`/handover` (updates this file).
+**Backup = live folder:** `~/.pi/agent` IS a git repo, pushed to private GitHub
+`TimWJT/pi-agent-backup`. Secrets/sessions are gitignored. After changing config:
+`git add -A && git commit && git push` — or just use `/pisave`.
+Git identity configured: TimWJT / tim200465@gmail.com.
+
+Prompt templates in `~/.pi/agent/prompts/`: `/pisave`, `/commit`, `/explain`,
+`/godot-verify`, `/handover` (updates this file), plus implement/review/scout-and-plan
+workflow wrappers.
+
+**Web research:** `ketch` CLI (v0.14.0) installed at `C:\Users\Tim\bin\ketch.exe`, on user
+PATH (restart terminals to see it). Skill in `skills/ketch/`. Search backend = Brave free
+tier — **key not yet added**; Tim must run `ketch config set brave_api_key <key>`
+(sign up at brave.com/search/api). Until then only DDG/exa zero-config search works.
+Fallback chain if Brave runs dry: Serper/Tavily free keys or DDG. Route big research jobs
+through `scout` subagents so raw pages stay out of main context.
+Old `skills/web-research` (curl-based) kept as a fallback.
+
+**Caveman skill** (`%USERPROFILE%\.agents\skills\caveman`, shared with Hermes, NOT in the
+backup repo): trimmed 26 Aug — wenyan levels removed, activation now explicit-only
+("be brief" ≠ caveman mode), anything written to disk stays normal prose.
 
 First interactive launch in a project folder with `.pi/` shows a one-time trust prompt —
 answer yes. `-a` / `--approve` bypasses it for non-interactive runs.
@@ -138,4 +154,5 @@ See those files for current rules — they are authoritative for game dev work.
 
 ---
 
-Last updated: 2026-08-26 (global-only config, no Claude)
+Last updated: 2026-08-26 (fresh-Windows restore complete; ketch installed, Brave key pending;
+backup repo = live ~/.pi/agent)
