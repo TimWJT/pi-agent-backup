@@ -8,5 +8,8 @@
     "stealth/ox-alpha"
   ],
   "shellPath": "C:/Program Files/Git/bin/bash.exe",
-  "hideThinkingBlock": true
+  "hideThinkingBlock": true,
+  "packages": [
+    "npm:@a-fig/accordion"
+  ]
 }
