@@ -25,5 +25,4 @@
 ## Context about me
 
 - Uni student (USYD); comfortable learning but not a professional dev — teaching tone is welcome.
-- Main focus right now: the COMP3888 capstone project (see project-specific instructions when in that folder).
 - When explaining something new, patience > brevity. When doing routine tasks, brevity > patience.

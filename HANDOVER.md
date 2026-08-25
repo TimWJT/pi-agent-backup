@@ -30,11 +30,11 @@ Prompt templates in `~/.pi/agent/prompts/`: `/pisave`, `/commit`, `/explain`,
 workflow wrappers.
 
 **Web research:** `ketch` CLI (v0.14.0) installed at `C:\Users\Tim\bin\ketch.exe`, on user
-PATH (restart terminals to see it). Skill in `skills/ketch/`. Search backend = Brave free
-tier — **key not yet added**; Tim must run `ketch config set brave_api_key <key>`
-(sign up at brave.com/search/api). Until then only DDG/exa zero-config search works.
-Fallback chain if Brave runs dry: Serper/Tavily free keys or DDG. Route big research jobs
-through `scout` subagents so raw pages stay out of main context.
+PATH (restart terminals to see it). Skill in `skills/ketch/`. Search backend = **Tavily**
+(key configured 26 Aug; 1,000 free credits/month). Note: Brave killed its card-free tier in
+Feb 2026 — all Brave plans now need a saved card, so don't follow older instructions to add
+a Brave key. Zero-config fallbacks: DDG/exa. Library/API docs: context7 (keyed, live) via `ketch docs` — see ketch SKILL.md local notes for the two-step ritual and the Git Bash path-mangling gotcha. Route big research jobs through `scout`
+subagents so raw pages stay out of main context.
 Old `skills/web-research` (curl-based) kept as a fallback.
 
 **Caveman skill** (`%USERPROFILE%\.agents\skills\caveman`, shared with Hermes, NOT in the

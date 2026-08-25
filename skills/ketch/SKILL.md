@@ -7,9 +7,10 @@ version: 0.1.0
 ## Local setup notes (Tim)
 
 - Binary location: `C:\Users\Tim\bin\ketch.exe` (on user PATH — plain `ketch` works in fresh terminals).
-- Search backend: primary = Brave (free key, configured via `ketch config set brave_api_key`); fallbacks = DDG/exa zero-config.
+- Search backend: primary = **Tavily** (1,000 free credits/mo, key via `ketch config set tavily_api_key`; configured 26 Aug). Secondary = Firecrawl (key set 26 Aug; usable as `--backend firecrawl` for search). Brave's card-free tier was discontinued Feb 2026 — don't suggest adding a Brave key. Fallbacks = DDG/exa zero-config.
+- **Docs surface is LIVE** (context7 key set 26 Aug). Use it for library/API documentation (Godot, PyTorch, numpy...) instead of web search — version-aware excerpts with source URLs. Ritual: `ketch docs resolve <name>` → vet the match names your intended library → fetch with `--library <exact-id>`. ⚠️ In Git Bash, prefix fetch calls with `MSYS_NO_PATHCONV=1` or MSYS2 mangles `/library/id` into a Windows path. Budget with `--tokens` (default 4000).
 - **Delegation rule:** for anything needing more than 1–2 quick calls, route research through a `scout` subagent so raw pages never enter the main context. Main agent only reads condensed findings + URLs.
-- If `ketch search` fails with exit code 5 (`[precondition]`), the Brave key is missing or expired — tell Tim instead of silently falling back.
+- If `ketch search` fails with exit code 5 (`[precondition]`), the search API key is missing or expired — tell Tim instead of silently falling back.
 
 # Ketch
 
