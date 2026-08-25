@@ -1,0 +1,12 @@
+{
+  "lastChangelogVersion": "0.84.2",
+  "defaultProvider": "openrouter",
+  "defaultModel": "stealth/ox-alpha",
+  "defaultThinkingLevel": "high",
+  "quietStartup": true,
+  "enabledModels": [
+    "stealth/ox-alpha"
+  ],
+  "shellPath": "C:/Program Files/Git/bin/bash.exe",
+  "hideThinkingBlock": true
+}

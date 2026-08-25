@@ -1,0 +1,6 @@
+# secrets & regenerating files — never commit these
+auth.json
+models-store.json
+trust.json
+sessions/
+bin/
