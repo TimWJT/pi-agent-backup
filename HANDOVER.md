@@ -12,22 +12,23 @@ Tim uses **Pi for code-heavy work** and Hermes Agent for general use.
 
 | Location | Config |
 |---|---|
-| Global (`~/.pi/agent/settings.json`) | openrouter / ox-alpha / thinking high / quietStartup / Git Bash shell |
+| Global (`~/.pi/agent/settings.json`) | No fixed default model / thinking max / quietStartup / Git Bash shell |
 
 **No per-project settings** — one global config covers everything; Tim does similar work
 in each project so a single profile is enough (decided 26 Aug).
 
-**Models:** ox-alpha via OpenRouter only (`enabledModels` = `stealth/ox-alpha`).
-No Anthropic/Claude fallback — deliberate choice, don't add one.
+**Models:** No fixed default model or Ctrl+P model list. Union Alpha and Ox Alpha were removed because they are no longer expected to return. `pi-live-models` remains installed so future free models can still be discovered. Do not add a paid provider or fallback without Tim choosing it.
 
 **Backup = live folder:** `~/.pi/agent` IS a git repo, pushed to private GitHub
-`TimWJT/pi-agent-backup`. Secrets/sessions are gitignored. After changing config:
-`git add -A && git commit && git push` — or just use `/pisave`.
-Git identity configured: TimWJT / tim200465@gmail.com.
+`TimWJT/pi-agent-backup`. Secrets/sessions are gitignored. After changing config,
+use `/pisave`; it stages only reviewed configuration paths.
 
-Prompt templates in `~/.pi/agent/prompts/`: `/pisave`, `/commit`, `/explain`,
-`/godot-verify`, `/handover` (updates this file), plus implement/review/scout-and-plan
-workflow wrappers.
+Prompt templates in `~/.pi/agent/prompts/`: `/audit-plan`, `/implement`, their `-fast`
+variants, `/tokensave`, `/review`, `/decisions`, `/commit` and `/pisave`. Normal
+paid-model flow is `/audit-plan` then `/implement`. Use `/tokensave <task>` to minimise
+status, delegation and final-response tokens without simplifying necessary technical
+content. The `-fast` variants deliberately maximise parallel speed and token use;
+reserve them for free models.
 
 **Web research:** `ketch` CLI (v0.14.0) installed at `C:\Users\Tim\bin\ketch.exe`, on user
 PATH (restart terminals to see it). Skill in `skills/ketch/`. Search backend = **Tavily**
@@ -37,9 +38,10 @@ a Brave key. Zero-config fallbacks: DDG/exa. Library/API docs: context7 (keyed, 
 subagents so raw pages stay out of main context.
 Old `skills/web-research` (curl-based) kept as a fallback.
 
-**Caveman skill** (`%USERPROFILE%\.agents\skills\caveman`, shared with Hermes, NOT in the
-backup repo): trimmed 26 Aug — wenyan levels removed, activation now explicit-only
-("be brief" ≠ caveman mode), anything written to disk stays normal prose.
+**Shared skills:** only `markitdown` remains under `%USERPROFILE%\.agents\skills`.
+The unused Codex/Cursor skill bundle, including Caveman and Loop, was removed on
+21 Sep 2026. The upstream `i-have-adhd` skill remains installed separately for Claude.
+Pi uses the unrelated `/tokensave` prompt for low-token task execution.
 
 First interactive launch in a project folder with `.pi/` shows a one-time trust prompt —
 answer yes. `-a` / `--approve` bypasses it for non-interactive runs.
@@ -154,5 +156,5 @@ See those files for current rules — they are authoritative for game dev work.
 
 ---
 
-Last updated: 2026-08-26 (fresh-Windows restore complete; ketch installed, Brave key pending;
+Last updated: 2026-08-26 (fresh-Windows restore complete; ketch installed with Tavily;
 backup repo = live ~/.pi/agent)

@@ -1,6 +1,6 @@
 ---
 name: web-research
-description: Fetching live information from the web using curl. Use when Tim asks to look up, check, or verify something online — docs pages, API references, GitHub issues, release notes, version numbers — or says "search", "look up", "google", or asks about anything that may have changed after the model's training cutoff.
+description: Fallback live web fetching with curl. Use only when the primary ketch skill is unavailable, fails, or Tim explicitly asks to use curl; do not select it for ordinary web research while ketch works.
 ---
 
 # Web research via curl

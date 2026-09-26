@@ -1,15 +1,11 @@
 {
-  "lastChangelogVersion": "0.84.2",
-  "defaultProvider": "openrouter",
-  "defaultModel": "stealth/ox-alpha",
-  "defaultThinkingLevel": "high",
+  "lastChangelogVersion": "0.87.1",
+  "defaultThinkingLevel": "max",
   "quietStartup": true,
-  "enabledModels": [
-    "stealth/ox-alpha"
-  ],
   "shellPath": "C:/Program Files/Git/bin/bash.exe",
   "hideThinkingBlock": true,
   "packages": [
-    "npm:@a-fig/accordion"
+    "npm:@a-fig/accordion",
+    "npm:pi-live-models@0.3.4"
   ]
 }
